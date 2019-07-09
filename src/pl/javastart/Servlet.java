@@ -12,7 +12,18 @@ import java.io.PrintWriter;
 public class Servlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("Post");
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        System.out.println(login+password);
+
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html");
+        PrintWriter writer = response.getWriter();
+
+        if(login.equals("admin") && password.equals("admin")){
+            writer.println("zalogowany");
+
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
